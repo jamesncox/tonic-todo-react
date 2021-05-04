@@ -22,7 +22,7 @@ function App(props) {
     <Router>
       <div className="bg-black md:w-3/5 m-auto">
         <Header />
-        <div className="flex h-screen justify-center items-center -mt-32">
+        <div className="flex h-screen justify-center">
           <Switch>
             <Route exact path="/">
               <Home />
