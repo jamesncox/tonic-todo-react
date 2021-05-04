@@ -12,7 +12,7 @@ export default function Footer() {
           James Cox
         </a>
       </p>
-      <p className="text-matrix-green">
+      <p className="text-matrix-green pb-5">
         {"Copyright © "}
         {new Date().getFullYear()}
       </p>
