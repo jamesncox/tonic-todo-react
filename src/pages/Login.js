@@ -31,9 +31,9 @@ function Login(props) {
     return <Redirect to="/todos" />;
   } else {
     return (
-      <div className="w-full sm:2/3 lg:w-1/2 xl:w-1/3 min-h-screen flex flex-col">
+      <div className="w-full sm:2/3 lg:w-1/2 xl:w-1/3 mt-16">
         <form
-          className="container flex-1 flex flex-col items-center justify-center px-2"
+          className="container flex-1 flex flex-col px-2"
           onSubmit={handleLogin}
         >
           <div className="px-6 py-8 rounded shadow-md text-black w-full">

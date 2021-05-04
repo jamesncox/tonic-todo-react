@@ -7,7 +7,7 @@ function Home(props) {
     return <Redirect to="/todos" />;
   } else {
     return (
-      <div className="flex-col text-center">
+      <div className="text-center mt-24">
         <h1 className="text-matrix-green font-mono font-extrabold text-xl mb-8">
           Log in or sign up
         </h1>

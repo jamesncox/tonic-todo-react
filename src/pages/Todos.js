@@ -7,7 +7,7 @@ function Todos(props) {
   } else {
     return (
       <div className="pt-16">
-        <h1 className="text-matrix-green-primary text-5xl font-mono">
+        <h1 className="text-matrix-green-primary text-3xl md:text-5xl font-mono">
           Your Todos
         </h1>
       </div>

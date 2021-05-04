@@ -2,7 +2,7 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router";
-import { signupUser, clearIsUserLoading } from "../actions/users";
+import { signupUser } from "../actions/users";
 
 function SignUp(props) {
   const [username, setUsername] = useState("");
@@ -38,9 +38,9 @@ function SignUp(props) {
     return <Redirect to="/todos" />;
   } else {
     return (
-      <div className="w-full sm:2/3 lg:w-1/2 xl:w-1/3 min-h-screen flex flex-col">
+      <div className="w-full sm:2/3 lg:w-1/2 xl:w-1/3 min-h-screen mt-16">
         <form
-          className="container flex-1 flex flex-col items-center justify-center px-2"
+          className="container flex-1 flex flex-col px-2"
           onSubmit={handleSignup}
         >
           <div className="px-6 py-8 rounded shadow-md text-black w-full">
@@ -120,6 +120,4 @@ const mapStateToProps = (state) => ({
   errors: state.errors.errors,
 });
 
-export default connect(mapStateToProps, { signupUser, clearIsUserLoading })(
-  SignUp
-);
+export default connect(mapStateToProps, { signupUser })(SignUp);
