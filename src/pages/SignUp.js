@@ -1,9 +1,44 @@
+import { useState } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { signupUser, clearIsUserLoading } from "../actions/users";
 
-export default function SignUp(props) {
+function SignUp(props) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+
+  const handleUsername = (e) => {
+    setUsername(e.target.value);
+  };
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handlePasswordConfirmation = (e) => {
+    setPasswordConfirmation(e.target.value);
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const user = {
+      username: username,
+      password: password,
+      password_confirmation: passwordConfirmation,
+    };
+    props.signupUser(props.token, user);
+    setUsername("");
+    setPassword("");
+    setPasswordConfirmation("");
+  };
+
   return (
     <div className="w-full sm:2/3 lg:w-1/2 xl:w-1/3 min-h-screen flex flex-col">
-      <div className="container flex-1 flex flex-col items-center justify-center px-2">
+      <form
+        className="container flex-1 flex flex-col items-center justify-center px-2"
+        onSubmit={handleLogin}
+      >
         <div className="px-6 py-8 rounded shadow-md text-black w-full">
           <h1 className="mb-8 text-3xl text-matrix-green-primary text-center font-mono font-bold">
             Sign up
@@ -11,8 +46,10 @@ export default function SignUp(props) {
           <input
             type="text"
             className="block border border-grey-light w-full p-3 rounded mb-4"
-            name="fullname"
-            placeholder="Full Name"
+            name="username"
+            placeholder="Username"
+            value={username}
+            onChange={handleUsername}
           />
 
           <input
@@ -20,12 +57,16 @@ export default function SignUp(props) {
             className="block border border-grey-light w-full p-3 rounded mb-4"
             name="password"
             placeholder="Password"
+            value={password}
+            onChange={handlePassword}
           />
           <input
             type="password"
             className="block border border-grey-light w-full p-3 rounded mb-4"
             name="confirm_password"
             placeholder="Confirm Password"
+            value={passwordConfirmation}
+            onChange={handlePasswordConfirmation}
           />
 
           <button
@@ -47,7 +88,18 @@ export default function SignUp(props) {
             Login
           </Link>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
+
+const mapStateToProps = (state) => ({
+  user: state.users.user,
+  loggedIn: state.users.loggedIn,
+  token: state.sessions.token,
+  loadingUser: state.users.loadingUser,
+});
+
+export default connect(mapStateToProps, { signupUser, clearIsUserLoading })(
+  SignUp
+);
