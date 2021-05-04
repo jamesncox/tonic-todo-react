@@ -16,13 +16,15 @@ function App(props) {
 
   return (
     <Router>
-      <Header />
-      <div className="h-screen bg-black flex justify-center pt-16">
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-        </Switch>
+      <div className="h-screen bg-black">
+        <Header />
+        <div className="flex justify-center pt-16">
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </div>
       </div>
     </Router>
   );
