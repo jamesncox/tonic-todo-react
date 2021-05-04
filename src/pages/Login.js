@@ -6,7 +6,7 @@ export default function Login(props) {
       <div className="container flex-1 flex flex-col items-center justify-center px-2">
         <div className="px-6 py-8 rounded shadow-md text-black w-full">
           <h1 className="mb-8 text-3xl text-matrix-green-primary text-center font-mono font-bold">
-            Sign up
+            Log In
           </h1>
           <input
             type="text"
@@ -26,7 +26,7 @@ export default function Login(props) {
             type="submit"
             className="w-full text-center py-3 rounded bg-matrix-green-primary text-black hover:bg-matrix-green-hover focus:outline-none my-1 font-mono font-bold"
           >
-            Create Account
+            Enter The Matrix
           </button>
         </div>
 
