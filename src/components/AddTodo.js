@@ -20,7 +20,7 @@ function AddTodo(props) {
   return (
     <div className="mt-16">
       <form className="w-full px-2" onSubmit={handleAddTodo}>
-        <label className="text-xl text-matrix-green-primary" for="add todo">
+        <label className="text-xl text-matrix-green-primary" htmlFor="add todo">
           Add New Todo
         </label>
         <input
