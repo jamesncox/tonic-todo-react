@@ -54,23 +54,28 @@ function Login(props) {
                   );
                 })
               : null}
-            <input
-              type="text"
-              className="block border border-grey-light w-full p-3 rounded mb-4"
-              name="fullname"
-              placeholder="Full Name"
-              value={username}
-              onChange={handleUsername}
-            />
 
-            <input
-              type="password"
-              className="block border border-grey-light w-full p-3 rounded mb-4"
-              name="password"
-              placeholder="Password"
-              value={password}
-              onChange={handlePassword}
-            />
+            <label for="username">
+              <input
+                type="text"
+                className="block border border-grey-light w-full p-3 rounded mb-4"
+                name="username"
+                placeholder="Username"
+                value={username}
+                onChange={handleUsername}
+              />
+            </label>
+
+            <label for="password">
+              <input
+                type="password"
+                className="block border border-grey-light w-full p-3 rounded mb-4"
+                name="password"
+                placeholder="Password"
+                value={password}
+                onChange={handlePassword}
+              />
+            </label>
 
             <button
               type="submit"
