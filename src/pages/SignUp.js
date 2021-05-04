@@ -99,10 +99,10 @@ function SignUp(props) {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.users.user,
-  loggedIn: state.users.loggedIn,
+  user: state.user,
+  loggedIn: state.user.loggedIn,
   token: state.sessions.token,
-  loadingUser: state.users.loadingUser,
+  loadingUser: state.user.loadingUser,
 });
 
 export default connect(mapStateToProps, { signupUser, clearIsUserLoading })(
