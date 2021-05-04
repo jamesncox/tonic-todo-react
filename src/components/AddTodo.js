@@ -11,7 +11,7 @@ function AddTodo(props) {
   const handleAddTodo = (e) => {
     e.preventDefault();
 
-    const todo = {
+    const newTodo = {
       title: todo,
       done: false,
     };
