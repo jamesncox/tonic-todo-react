@@ -12,6 +12,10 @@ module.exports = {
       fontFamily: {
         mono: ["courier"],
       },
+      backgroundImage: (theme) => ({
+        "matrix-code":
+          "url('https://media.giphy.com/media/AOSwwqVjNZlDO/giphy.gif')",
+      }),
     },
   },
   variants: {

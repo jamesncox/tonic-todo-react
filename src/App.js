@@ -17,7 +17,7 @@ function App(props) {
 
   return (
     <Router>
-      <div className="h-screen bg-black">
+      <div className="h-screen bg-black md:w-3/5 m-auto">
         <Header />
         <div className="flex h-screen justify-center items-center -mt-32">
           <Switch>
