@@ -1,6 +1,5 @@
 import {
   SET_USER,
-  USER_ERRORS,
   CLEAR_USER,
   CLEAR_ERRORS,
   LOADING_USER,
@@ -11,7 +10,6 @@ export default (
   state = {
     username: "",
     id: null,
-    errors: [],
     loggedIn: false,
     loadingUser: false,
   },
@@ -28,9 +26,6 @@ export default (
         loggedIn: true,
         loadingUser: false,
       };
-
-    case USER_ERRORS:
-      return { ...state, errors: action.payload };
 
     case CLEAR_USER:
       return {
