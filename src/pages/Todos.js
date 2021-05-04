@@ -6,7 +6,7 @@ function Todos(props) {
     return <Redirect to="/" />;
   } else {
     return (
-      <div className="pt-16">
+      <div className="pt-8">
         <h1 className="text-matrix-green-primary text-3xl md:text-5xl font-mono">
           Your Todos
         </h1>
