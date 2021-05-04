@@ -18,7 +18,7 @@ function App(props) {
     <Router>
       <div className="h-screen bg-black">
         <Header />
-        <div className="flex justify-center pt-16">
+        <div className="flex h-screen justify-center items-center -mt-32">
           <Switch>
             <Route exact path="/">
               <Home />
