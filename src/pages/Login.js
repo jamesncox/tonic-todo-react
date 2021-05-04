@@ -36,11 +36,21 @@ function Login(props) {
           className="container flex-1 flex flex-col items-center justify-center px-2"
           onSubmit={handleLogin}
         >
-          {" "}
           <div className="px-6 py-8 rounded shadow-md text-black w-full">
             <h1 className="mb-8 text-3xl text-matrix-green-primary text-center font-mono font-bold">
               Log In
             </h1>
+            {props.errors
+              ? props.errors.map((error, index) => {
+                  return (
+                    <ul key={index}>
+                      <li className="text-red-500 text-center my-5" key={index}>
+                        {error}
+                      </li>
+                    </ul>
+                  );
+                })
+              : null}
             <input
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4"
@@ -84,10 +94,8 @@ function Login(props) {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user,
   loggedIn: state.user.loggedIn,
-  token: state.sessions.token,
-  loadingUser: state.user.loadingUser,
+  errors: state.errors.errors,
 });
 
 export default connect(mapStateToProps, { loginUser, clearIsUserLoading })(

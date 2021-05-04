@@ -47,6 +47,17 @@ function SignUp(props) {
             <h1 className="mb-8 text-3xl text-matrix-green-primary text-center font-mono font-bold">
               Sign up
             </h1>
+            {props.errors
+              ? props.errors.map((error, index) => {
+                  return (
+                    <ul key={index}>
+                      <li className="text-red-500 text-center my-5" key={index}>
+                        {error}
+                      </li>
+                    </ul>
+                  );
+                })
+              : null}
             <input
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4"
@@ -103,6 +114,7 @@ const mapStateToProps = (state) => ({
   loggedIn: state.user.loggedIn,
   token: state.sessions.token,
   loadingUser: state.user.loadingUser,
+  errors: state.errors.errors,
 });
 
 export default connect(mapStateToProps, { signupUser, clearIsUserLoading })(
