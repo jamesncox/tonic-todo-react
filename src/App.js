@@ -4,7 +4,7 @@ import { getToken } from "./actions/sessions";
 import { setCurrentUser } from "./actions/users";
 import "./stylesheets/App.css";
 
-function App() {
+function App(props) {
   return (
     <Router>
       <div className="App">
@@ -14,8 +14,4 @@ function App() {
   );
 }
 
-const mapStateToProps = (state) => ({
-  selectedListCategory: state.lists.selectedListCategory,
-});
-
-export default connect(mapStateToProps, { getToken, setCurrentUser })(App);
+export default connect(null, { getToken, setCurrentUser })(App);
