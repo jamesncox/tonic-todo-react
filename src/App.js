@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Footer from "./components/Footer";
+import Todos from "./pages/Todos";
 
 function App(props) {
   useEffect(() => {
@@ -31,6 +32,9 @@ function App(props) {
             </Route>
             <Route exact path="/signup">
               <SignUp />
+            </Route>
+            <Route exact path="/todos">
+              <Todos />
             </Route>
           </Switch>
         </div>

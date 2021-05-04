@@ -9,7 +9,8 @@ import {
 
 export default (
   state = {
-    user: {},
+    username: "",
+    id: null,
     errors: [],
     loggedIn: false,
     loadingUser: false,
@@ -23,7 +24,7 @@ export default (
     case SET_USER:
       return {
         ...state,
-        user: action.payload,
+        ...action.payload,
         loggedIn: true,
         loadingUser: false,
       };
@@ -32,7 +33,13 @@ export default (
       return { ...state, errors: action.payload };
 
     case CLEAR_USER:
-      return { ...state, user: {}, loggedIn: false, loadingUser: false };
+      return {
+        ...state,
+        username: "",
+        id: null,
+        loggedIn: false,
+        loadingUser: false,
+      };
 
     case CLEAR_ERRORS:
       return { ...state, errors: [] };
