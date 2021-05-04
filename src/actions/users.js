@@ -47,6 +47,7 @@ export function signupUser(token, user) {
       dispatch({ type: SET_ERRORS, payload: userObj.errors });
     } else {
       dispatch({ type: SET_USER, payload: userObj });
+      dispatch({ type: CLEAR_ERRORS });
     }
   };
 }
@@ -79,6 +80,7 @@ export function loginUser(user) {
       dispatch({ type: SET_ERRORS, payload: userObj.errors });
     } else {
       dispatch({ type: SET_USER, payload: userObj });
+      dispatch({ type: CLEAR_ERRORS });
     }
   };
 }

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
-import { loginUser, clearIsUserLoading } from "../actions/users";
+import { loginUser } from "../actions/users";
 
 function Login(props) {
   const [username, setUsername] = useState("");
@@ -44,7 +44,10 @@ function Login(props) {
               ? props.errors.map((error, index) => {
                   return (
                     <ul key={index}>
-                      <li className="text-red-500 text-center my-5" key={index}>
+                      <li
+                        className="text-red-500 text-center my-5 text-xl"
+                        key={index}
+                      >
                         {error}
                       </li>
                     </ul>
@@ -98,6 +101,4 @@ const mapStateToProps = (state) => ({
   errors: state.errors.errors,
 });
 
-export default connect(mapStateToProps, { loginUser, clearIsUserLoading })(
-  Login
-);
+export default connect(mapStateToProps, { loginUser })(Login);

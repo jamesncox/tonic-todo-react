@@ -51,7 +51,10 @@ function SignUp(props) {
               ? props.errors.map((error, index) => {
                   return (
                     <ul key={index}>
-                      <li className="text-red-500 text-center my-5" key={index}>
+                      <li
+                        className="text-red-500 text-center my-5 text-xl"
+                        key={index}
+                      >
                         {error}
                       </li>
                     </ul>
