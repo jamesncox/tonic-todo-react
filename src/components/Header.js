@@ -2,8 +2,8 @@ import { connect } from "react-redux";
 
 function Header(props) {
   const displayUser = () => {
-    if (props.user) {
-      return props.user.username;
+    if (props.username) {
+      return props.username;
     } else {
       return "Tonic";
     }
@@ -19,7 +19,7 @@ function Header(props) {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user,
+  username: state.user.username,
 });
 
 export default connect(mapStateToProps)(Header);
