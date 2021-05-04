@@ -34,7 +34,7 @@ function SignUp(props) {
     setPasswordConfirmation("");
   };
 
-  if (props.loggedIn === true) {
+  if (props.loggedIn) {
     return <Redirect to="/todos" />;
   } else {
     return (
