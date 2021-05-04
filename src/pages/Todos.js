@@ -1,15 +1,14 @@
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
+import AddTodo from "../components/AddTodo";
 
 function Todos(props) {
   if (!props.loggedIn) {
     return <Redirect to="/" />;
   } else {
     return (
-      <div className="pt-8">
-        <h1 className="text-matrix-green-primary text-3xl md:text-5xl font-mono">
-          Your Todos
-        </h1>
+      <div>
+        <AddTodo />
       </div>
     );
   }
