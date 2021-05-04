@@ -7,6 +7,7 @@ import "./stylesheets/App.css";
 
 import Header from "./components/Header";
 import Home from "./pages/Home";
+import Footer from "./components/Footer";
 
 function App(props) {
   useEffect(() => {
@@ -25,6 +26,7 @@ function App(props) {
             </Route>
           </Switch>
         </div>
+        <Footer />
       </div>
     </Router>
   );
