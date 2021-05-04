@@ -55,7 +55,7 @@ function Login(props) {
                 })
               : null}
 
-            <label for="username">
+            <label htmlFor="username">
               <input
                 type="text"
                 className="block border border-grey-light w-full p-3 rounded mb-4"
@@ -66,7 +66,7 @@ function Login(props) {
               />
             </label>
 
-            <label for="password">
+            <label htmlFor="password">
               <input
                 type="password"
                 className="block border border-grey-light w-full p-3 rounded mb-4"
