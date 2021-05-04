@@ -1,10 +1,10 @@
 export default function Footer() {
   return (
-    <div className="text-center border-t border-matrix-green mx-5 md:mx-96 pt-5 mt-auto mb-5">
+    <div className="text-center border-t border-matrix-green mx-5 md:mx-96 pt-5 mt-auto">
       <p className="text-matrix-green">
         Made with ❤️‍ by{" "}
         <a
-          className="font-bold hover:text-white"
+          className="font-bold hover:text-matrix-green-hover"
           href="https://www.jamescox.dev/"
           rel="noopener noreferrer"
           target="_blank"
