@@ -21,7 +21,7 @@ function SignUp(props) {
     setPasswordConfirmation(e.target.value);
   };
 
-  const handleLogin = (e) => {
+  const handleSignup = (e) => {
     e.preventDefault();
     const user = {
       username: username,
@@ -41,7 +41,7 @@ function SignUp(props) {
       <div className="w-full sm:2/3 lg:w-1/2 xl:w-1/3 min-h-screen flex flex-col">
         <form
           className="container flex-1 flex flex-col items-center justify-center px-2"
-          onSubmit={handleLogin}
+          onSubmit={handleSignup}
         >
           <div className="px-6 py-8 rounded shadow-md text-black w-full">
             <h1 className="mb-8 text-3xl text-matrix-green-primary text-center font-mono font-bold">

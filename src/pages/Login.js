@@ -1,14 +1,42 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
+import { loginUser, clearIsUserLoading } from "../actions/users";
 
 function Login(props) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleUsername = (e) => {
+    setUsername(e.target.value);
+  };
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const user = {
+      username: username,
+      password: password,
+    };
+    props.loginUser(user);
+    setUsername("");
+    setPassword("");
+  };
+
   if (props.loggedIn) {
     return <Redirect to="/todos" />;
   } else {
     return (
       <div className="w-full sm:2/3 lg:w-1/2 xl:w-1/3 min-h-screen flex flex-col">
-        <div className="container flex-1 flex flex-col items-center justify-center px-2">
+        <form
+          className="container flex-1 flex flex-col items-center justify-center px-2"
+          onSubmit={handleLogin}
+        >
+          {" "}
           <div className="px-6 py-8 rounded shadow-md text-black w-full">
             <h1 className="mb-8 text-3xl text-matrix-green-primary text-center font-mono font-bold">
               Log In
@@ -18,6 +46,8 @@ function Login(props) {
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="fullname"
               placeholder="Full Name"
+              value={username}
+              onChange={handleUsername}
             />
 
             <input
@@ -25,6 +55,8 @@ function Login(props) {
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="password"
               placeholder="Password"
+              value={password}
+              onChange={handlePassword}
             />
 
             <button
@@ -34,7 +66,6 @@ function Login(props) {
               Enter The Matrix
             </button>
           </div>
-
           <div className="flex flex-col items-center mt-6">
             <p className="font-mono text-xl font-black text-matrix-green-secondary text-center">
               Don't have an account?
@@ -46,7 +77,7 @@ function Login(props) {
               Sign Up
             </Link>
           </div>
-        </div>
+        </form>
       </div>
     );
   }
@@ -59,4 +90,6 @@ const mapStateToProps = (state) => ({
   loadingUser: state.user.loadingUser,
 });
 
-export default connect(mapStateToProps, {})(Login);
+export default connect(mapStateToProps, { loginUser, clearIsUserLoading })(
+  Login
+);
