@@ -31,7 +31,7 @@ export function signupUser(token, user) {
       },
     };
 
-    const res = await fetch("https://localhost:3001/api/v1/signup", {
+    const res = await fetch("http://localhost:3001/api/v1/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -65,7 +65,7 @@ export function loginUser(user) {
     const state = getState();
     const token = state.sessions.token;
 
-    const res = await fetch("https://localhost:3001/api/v1/login", {
+    const res = await fetch("http://localhost:3001/api/v1/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -86,7 +86,7 @@ export function loginUser(user) {
 export function setCurrentUser() {
   return async (dispatch) => {
     try {
-      const res = await fetch("https://localhost:3001/api/v1/current_user", {
+      const res = await fetch("http://localhost:3001/api/v1/current_user", {
         credentials: "include",
       });
       if (!res.ok) {
@@ -107,7 +107,7 @@ export function clearCurrentUser() {
     const state = getState();
     const token = state.sessions.token;
 
-    const res = await fetch("https://localhost:3001/api/v1/logout", {
+    const res = await fetch("http://localhost:3001/api/v1/logout", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
