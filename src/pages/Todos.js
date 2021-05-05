@@ -18,7 +18,7 @@ function Todos({ id, loggedIn, todos }) {
     return <Redirect to="/" />;
   } else {
     return (
-      <div>
+      <div className="sm:2/3 md:w-2/3 lg:w-1/2">
         <AddTodo />
         <ul>
           {todos
