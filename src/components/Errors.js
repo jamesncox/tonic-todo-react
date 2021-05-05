@@ -16,7 +16,7 @@ function Errors({ errors, clearErrors, clearIsUserLoading }) {
       <div className="mx-5 justify-center mt-32 flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
         <div className="relative w-auto my-6 mx-auto max-w-3xl">
           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-            <div className="flex justify-center p-5 bg-matrix-green-primary rounded rounded-b-none">
+            <div className="flex justify-center p-5 bg-matrix-green rounded rounded-b-none">
               <h3 className="text-3xl text-matrix-green-secondary font-mono font-bold">
                 There's a glitch in The Matrix!
               </h3>
@@ -35,9 +35,9 @@ function Errors({ errors, clearErrors, clearIsUserLoading }) {
                 );
               })}
             </div>
-            <div className="flex items-center justify-end rounded-b bg-matrix-green-primary ">
+            <div className="flex items-center justify-end rounded-b bg-matrix-green ">
               <button
-                className="text-matrix-green-secondary font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                className="bg-matrix-green-primary rounded hover:bg-matrix-green-hover m-1 text-matrix-green-secondary font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                 type="button"
                 onClick={closeModal}
               >
