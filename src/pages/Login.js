@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import { loginUser } from "../actions/users";
+import Loader from "../components/Loader";
 
 function Login(props) {
   const [username, setUsername] = useState("");
@@ -32,6 +33,7 @@ function Login(props) {
   } else {
     return (
       <div className="w-full sm:2/3 lg:w-1/2 xl:w-1/3 mt-16">
+        {props.loadingUser ? <Loader /> : null}
         <form
           className="container flex-1 flex flex-col px-2"
           onSubmit={handleLogin}
@@ -104,6 +106,7 @@ function Login(props) {
 const mapStateToProps = (state) => ({
   loggedIn: state.user.loggedIn,
   errors: state.errors.errors,
+  loadingUser: state.user.loadingUser,
 });
 
 export default connect(mapStateToProps, { loginUser })(Login);
