@@ -6,7 +6,7 @@ import { loginUser } from "../actions/users";
 import Loader from "../components/Loader";
 import Errors from "../components/Errors";
 
-function Login(props) {
+function Login({ loggedIn, errors, loadingUser, loginUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,17 +24,17 @@ function Login(props) {
       username: username,
       password: password,
     };
-    props.loginUser(user);
+    loginUser(user);
     setUsername("");
     setPassword("");
   };
 
-  if (props.loggedIn) {
+  if (loggedIn) {
     return <Redirect to="/todos" />;
   } else {
     return (
       <div className="w-full sm:2/3 lg:w-1/2 xl:w-1/3 mt-16">
-        {props.loadingUser ? <Loader /> : null}
+        {loadingUser ? <Loader /> : null}
         <form
           className="container flex-1 flex flex-col px-2"
           onSubmit={handleLogin}
@@ -43,7 +43,7 @@ function Login(props) {
             <h1 className="mb-8 text-3xl text-matrix-green-primary text-center font-mono font-bold">
               Log In
             </h1>
-            {props.errors ? <Errors /> : null}
+            {errors ? <Errors /> : null}
 
             <label htmlFor="username">
               <input
