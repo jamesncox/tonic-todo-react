@@ -17,17 +17,16 @@ export const getTodos = (id) => {
   return async (dispatch) => {
     dispatch({ type: LOADING_TODOS });
 
-    try {
-      const res = await fetch(
-        `https://the-matrix-todo.herokuapp.com/api/v1/user_todos/${id}`
-      );
-      if (!res.ok) {
-        throw res;
-      }
-      const todoData = await res.json();
+    const res = await fetch(
+      `https://the-matrix-todo.herokuapp.com/api/v1/user_todos/${id}`
+    );
+
+    const todoData = await res.json();
+
+    if (todoData.errors) {
+      dispatch({ type: SET_ERRORS, payload: todoData.errors });
+    } else {
       dispatch(setTodos(todoData));
-    } catch (err) {
-      console.log(err);
     }
   };
 };
