@@ -2,8 +2,8 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router";
 
-function Home(props) {
-  if (props.loggedIn) {
+function Home({ loggedIn }) {
+  if (loggedIn) {
     return <Redirect to="/todos" />;
   } else {
     return (
