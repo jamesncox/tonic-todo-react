@@ -1,4 +1,4 @@
-import MatrixScroll from "../assets/matrix-scroll-code.webp";
+import MatrixScroll from "../assets/matrix-scroll.gif";
 
 export default function Loader() {
   return (
