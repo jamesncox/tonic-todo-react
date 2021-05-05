@@ -3,6 +3,7 @@ import { connect, useDispatch } from "react-redux";
 import { Redirect } from "react-router";
 import AddTodo from "../components/AddTodo";
 import { getTodos } from "../actions/todos";
+import TodoItem from "../components/TodoItem";
 
 function Todos(props) {
   const dispatch = useDispatch();
@@ -21,26 +22,7 @@ function Todos(props) {
         <AddTodo />
         <ul>
           {props.todos
-            ? props.todos.map((todo) => (
-                <div
-                  className="flex mx-5 md:mx-0 mt-5 bg-matrix-green p-4 rounded"
-                  key={todo.id}
-                >
-                  <input
-                    className="mt-1.5 mr-5 checked:bg-matrix-green-secondary checked:border-transparent "
-                    type="checkbox"
-                    id={todo.id}
-                    name={todo}
-                    value={todo}
-                  />
-                  <li className="text-matrix-green-secondary font-mono font-bold text-lg md:text-xl">
-                    {todo.text}
-                  </li>
-                  <button className=" ml-5 bg-matrix-green-secondary px-2 rounded font-bold font-mono text-matrix-green-light hover:bg-matrix-green-light hover:text-matrix-green-primary">
-                    X
-                  </button>
-                </div>
-              ))
+            ? props.todos.map((todo) => <TodoItem todo={todo} />)
             : null}
         </ul>
       </div>

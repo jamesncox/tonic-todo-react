@@ -19,6 +19,7 @@ function AddTodo(props) {
     };
 
     props.createTodo(newTodo);
+    setTodo("");
   };
 
   return (
