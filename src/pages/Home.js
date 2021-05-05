@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router";
+import Loader from "../components/Loader";
 
 function Home(props) {
   if (props.loggedIn) {
@@ -23,6 +24,7 @@ function Home(props) {
         >
           Sign Up
         </Link>
+        <Loader />
       </div>
     );
   }
