@@ -19,6 +19,11 @@ function Todos(props) {
     return (
       <div>
         <AddTodo />
+        <ul>
+          {props.todos
+            ? props.todos.map((todo) => <li>{todo.title}</li>)
+            : null}
+        </ul>
       </div>
     );
   }
@@ -28,6 +33,7 @@ const mapStateToProps = (state) => ({
   user: state.user.username,
   id: state.user.id,
   loggedIn: state.user.loggedIn,
+  todos: state.todos.todos,
 });
 
 export default connect(mapStateToProps, { getTodos })(Todos);
