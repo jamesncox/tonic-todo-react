@@ -34,7 +34,7 @@ function Login(props) {
   } else {
     return (
       <div className="w-full sm:2/3 lg:w-1/2 xl:w-1/3 mt-16">
-        {props.loadingUser && props.errors !== null ? <Loader /> : null}
+        {props.loadingUser ? <Loader /> : null}
         <form
           className="container flex-1 flex flex-col px-2"
           onSubmit={handleLogin}

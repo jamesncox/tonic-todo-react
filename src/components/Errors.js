@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { connect } from "react-redux";
-import { clearErrors } from "../actions/users";
+import { clearErrors, clearIsUserLoading } from "../actions/users";
 
-function Errors({ errors, clearErrors }) {
-  const [showmodal, setShowModal] = useState(false);
+function Errors({ errors, clearErrors, clearIsUserLoading }) {
+  const [, setShowModal] = useState(false);
 
   const closeModal = () => {
     setShowModal(false);
     clearErrors();
+    clearIsUserLoading();
   };
 
   return (
@@ -55,4 +56,6 @@ const mapStateToProps = (state) => ({
   errors: state.errors.errors,
 });
 
-export default connect(mapStateToProps, { clearErrors })(Errors);
+export default connect(mapStateToProps, { clearErrors, clearIsUserLoading })(
+  Errors
+);
