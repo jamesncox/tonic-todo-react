@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="text-center border-t border-matrix-green mx-5 pt-5 mt-auto">
+    <div className="text-center border-t border-matrix-green mx-5 pt-5 mt-auto xl:w-1/2 xl:mx-auto">
       <p className="text-matrix-green">
         Made with ❤️‍ by{" "}
         <a
