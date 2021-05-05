@@ -19,12 +19,27 @@ function Todos(props) {
     return (
       <div>
         <AddTodo />
-        <ul className="mt-16 bg-matrix-green-light p-8 rounded">
+        <ul>
           {props.todos
             ? props.todos.map((todo) => (
-                <li className="text-matrix-green-secondary font-mono font-bold text-xl">
-                  {todo.text}
-                </li>
+                <div
+                  className="flex mx-5 md:mx-0 mt-16 bg-matrix-green p-8 rounded"
+                  key={todo.id}
+                >
+                  <input
+                    className="mt-1.5 mr-5 checked:bg-matrix-green-secondary checked:border-transparent "
+                    type="checkbox"
+                    id={todo.id}
+                    name={todo}
+                    value={todo}
+                  />
+                  <li className="text-matrix-green-secondary font-mono font-bold text-lg md:text-xl">
+                    {todo.text}
+                  </li>
+                  <button className="ml-5 bg-matrix-green-secondary px-2 rounded font-bold font-mono text-matrix-green-light hover:bg-matrix-green-light hover:text-matrix-green-primary">
+                    X
+                  </button>
+                </div>
               ))
             : null}
         </ul>
