@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router";
 import { signupUser } from "../actions/users";
+import Loader from "../components/Loader";
+import Errors from "../components/Errors";
 
 function SignUp(props) {
   const [username, setUsername] = useState("");
@@ -39,6 +41,7 @@ function SignUp(props) {
   } else {
     return (
       <div className="w-full sm:2/3 lg:w-1/2 xl:w-1/3 min-h-screen mt-16">
+        {props.loadingUser ? <Loader /> : null}
         <form
           className="container flex-1 flex flex-col px-2"
           onSubmit={handleSignup}
@@ -47,20 +50,7 @@ function SignUp(props) {
             <h1 className="mb-8 text-3xl text-matrix-green-primary text-center font-mono font-bold">
               Sign up
             </h1>
-            {props.errors
-              ? props.errors.map((error, index) => {
-                  return (
-                    <ul key={index}>
-                      <li
-                        className="text-red-500 text-center my-5 text-xl"
-                        key={index}
-                      >
-                        {error}
-                      </li>
-                    </ul>
-                  );
-                })
-              : null}
+            {props.errors ? <Errors /> : null}
 
             <label htmlFor="username">
               <input
