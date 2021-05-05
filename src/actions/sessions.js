@@ -6,10 +6,21 @@ const setToken = (token) => {
   };
 };
 
-export function getToken() {
-  return (dispatch) => {
-    fetch("https://the-matrix-todo.herokuapp.com/api/v1/auth_check")
-      .then((res) => res.json())
-      .then((token) => dispatch(setToken(token.csrf_auth_token)));
+export const getToken = () => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(
+        "https://the-matrix-todo.herokuapp.com/api/v1/auth_check"
+      );
+
+      if (!res.ok) {
+        throw res;
+      }
+
+      const tokenData = await res.json();
+      dispatch(setToken(tokenData.csrf_auth_token));
+    } catch (err) {
+      console.log(err);
+    }
   };
-}
+};
