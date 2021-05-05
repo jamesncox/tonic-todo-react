@@ -62,7 +62,6 @@ export const createTodo = (todo) => {
 };
 
 export const changeTodoStatus = (todo) => {
-  console.log(todo);
   return async (dispatch) => {
     const formData = {
       text: todo.text,
