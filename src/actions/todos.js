@@ -94,14 +94,14 @@ export const changeTodoStatus = (todo) => {
   };
 };
 
-export function deleteTodo(id) {
-  return (dispatch) => {
-    dispatch({ type: LOADING_TODOS });
-
-    fetch(`http://localhost:3001/api/v1/todos/${id}`, {
+export const deleteTodo = (id) => {
+  return async (dispatch) => {
+    const res = await fetch(`http://localhost:3001/api/v1/todos/${id}`, {
       method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((todo) => dispatch({ type: DELETE_TODO, payload: todo }));
+    });
+
+    const todoObj = await res.json();
+
+    dispatch({ type: DELETE_TODO, payload: todoObj });
   };
-}
+};

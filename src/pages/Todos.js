@@ -5,24 +5,24 @@ import AddTodo from "../components/AddTodo";
 import { getTodos } from "../actions/todos";
 import TodoItem from "../components/TodoItem";
 
-function Todos(props) {
+function Todos({ id, loggedIn, todos }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (props.loggedIn) {
-      dispatch(getTodos(props.id));
+    if (loggedIn) {
+      dispatch(getTodos(id));
     }
-  }, [dispatch, props.id, props.loggedIn]);
+  }, [dispatch, id, loggedIn]);
 
-  if (!props.loggedIn) {
+  if (!loggedIn) {
     return <Redirect to="/" />;
   } else {
     return (
       <div>
         <AddTodo />
         <ul>
-          {props.todos
-            ? props.todos.map((todo) => <TodoItem todo={todo} />)
+          {todos
+            ? todos.map((todo) => <TodoItem key={todo.id} todo={todo} />)
             : null}
         </ul>
       </div>
@@ -31,7 +31,6 @@ function Todos(props) {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user.username,
   id: state.user.id,
   loggedIn: state.user.loggedIn,
   todos: state.todos.todos,
