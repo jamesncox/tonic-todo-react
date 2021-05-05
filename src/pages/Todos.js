@@ -23,7 +23,7 @@ function Todos(props) {
           {props.todos
             ? props.todos.map((todo) => (
                 <div
-                  className="flex mx-5 md:mx-0 mt-16 bg-matrix-green p-8 rounded"
+                  className="flex mx-5 md:mx-0 mt-16 bg-matrix-green p-4 rounded"
                   key={todo.id}
                 >
                   <input
