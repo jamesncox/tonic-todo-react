@@ -38,7 +38,7 @@ export default (
         if (todo.id === action.payload.id) {
           return {
             ...todo,
-            title: action.payload.title,
+            text: action.payload.text,
             done: action.payload.done,
           };
         }

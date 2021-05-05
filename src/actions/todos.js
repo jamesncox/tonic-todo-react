@@ -34,7 +34,7 @@ export const createTodo = (todo) => {
     dispatch({ type: LOADING_SINGLE_TODO });
 
     const formData = {
-      title: todo.title,
+      text: todo.text,
       done: todo.done,
       user_id: todo.userId,
     };
@@ -64,7 +64,7 @@ export const changeTodoStatus = (todo) => {
     dispatch({ type: LOADING_TODOS });
 
     const formData = {
-      title: todo.title,
+      text: todo.text,
       done: todo.done,
       user_id: todo.userId,
     };

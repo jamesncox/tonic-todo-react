@@ -20,9 +20,7 @@ function Todos(props) {
       <div>
         <AddTodo />
         <ul>
-          {props.todos
-            ? props.todos.map((todo) => <li>{todo.title}</li>)
-            : null}
+          {props.todos ? props.todos.map((todo) => <li>{todo.text}</li>) : null}
         </ul>
       </div>
     );

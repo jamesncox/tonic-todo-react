@@ -12,7 +12,7 @@ function AddTodo(props) {
     e.preventDefault();
 
     const newTodo = {
-      title: todo,
+      text: todo,
       done: false,
     };
   };
