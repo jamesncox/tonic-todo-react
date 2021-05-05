@@ -19,8 +19,12 @@ function Todos(props) {
     return (
       <div>
         <AddTodo />
-        <ul>
-          {props.todos ? props.todos.map((todo) => <li>{todo.text}</li>) : null}
+        <ul className="mt-16">
+          {props.todos
+            ? props.todos.map((todo) => (
+                <li className="text-matrix-green-primary">{todo.text}</li>
+              ))
+            : null}
         </ul>
       </div>
     );
