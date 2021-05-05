@@ -12,11 +12,11 @@ import SignUp from "./pages/SignUp";
 import Footer from "./components/Footer";
 import Todos from "./pages/Todos";
 
-function App(props) {
+function App({ getToken, setCurrentUser }) {
   useEffect(() => {
-    props.getToken();
-    props.setCurrentUser();
-  }, [props]);
+    getToken();
+    setCurrentUser();
+  }, []);
 
   return (
     <Router>
