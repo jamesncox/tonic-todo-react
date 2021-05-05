@@ -106,7 +106,7 @@ export function setCurrentUser() {
       const userObj = await res.json();
       dispatch({ type: SET_USER, payload: userObj });
     } catch (err) {
-      // alert(err.message);
+      console.log(err);
     }
   };
 }
