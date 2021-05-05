@@ -8,7 +8,7 @@ import {
   CLEAR_LOADING_SINGLE_TODO,
 } from "../actionTypes";
 
-export default (
+const todosReducer = (
   state = {
     todos: [],
     loadingTodos: false,
@@ -59,3 +59,5 @@ export default (
       return state;
   }
 };
+
+export default todosReducer;

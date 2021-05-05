@@ -1,6 +1,6 @@
 import { SET_ERRORS, CLEAR_ERRORS } from "../actionTypes";
 
-export default (
+const errorsReducer = (
   state = {
     errors: null,
   },
@@ -17,3 +17,5 @@ export default (
       return state;
   }
 };
+
+export default errorsReducer;

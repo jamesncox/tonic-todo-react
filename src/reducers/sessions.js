@@ -1,6 +1,6 @@
 import { SET_TOKEN } from "../actionTypes";
 
-export default (state = { token: "" }, action) => {
+const sessionsReducer = (state = { token: "" }, action) => {
   switch (action.type) {
     case SET_TOKEN:
       return { token: action.payload };
@@ -9,3 +9,5 @@ export default (state = { token: "" }, action) => {
       return state;
   }
 };
+
+export default sessionsReducer;

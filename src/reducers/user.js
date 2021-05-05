@@ -6,7 +6,7 @@ import {
   CLEAR_IS_USER_LOADING,
 } from "../actionTypes";
 
-export default (
+const userReducer = (
   state = {
     username: "",
     id: null,
@@ -46,3 +46,5 @@ export default (
       return state;
   }
 };
+
+export default userReducer;
