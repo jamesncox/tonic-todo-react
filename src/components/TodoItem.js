@@ -16,10 +16,8 @@ export default function TodoItem({ todo }) {
           {todo.text}
         </li>
       </div>
-      <button>
-        <div className="ml-5 bg-matrix-green-secondary px-2 rounded font-bold text-matrix-green-light hover:bg-matrix-green-light hover:text-matrix-green-primary">
-          x
-        </div>
+      <button className="leading-none ml-5 bg-matrix-green-secondary px-2 py-1 rounded font-bold text-matrix-green-light hover:bg-matrix-green-light hover:text-matrix-green-primary">
+        X
       </button>
     </div>
   );
