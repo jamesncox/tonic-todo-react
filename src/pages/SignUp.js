@@ -6,7 +6,7 @@ import { signupUser } from "../actions/users";
 import Loader from "../components/Loader";
 import Errors from "../components/Errors";
 
-function SignUp(props) {
+function SignUp({ loggedIn, token, loadingUser, errors, signupUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -30,18 +30,18 @@ function SignUp(props) {
       password: password,
       password_confirmation: passwordConfirmation,
     };
-    props.signupUser(props.token, user);
+    signupUser(token, user);
     setUsername("");
     setPassword("");
     setPasswordConfirmation("");
   };
 
-  if (props.loggedIn) {
+  if (loggedIn) {
     return <Redirect to="/todos" />;
   } else {
     return (
       <div className="w-full sm:2/3 lg:w-1/2 xl:w-1/3 min-h-screen mt-16">
-        {props.loadingUser ? <Loader /> : null}
+        {loadingUser ? <Loader /> : null}
         <form
           className="container flex-1 flex flex-col px-2"
           onSubmit={handleSignup}
@@ -50,7 +50,7 @@ function SignUp(props) {
             <h1 className="mb-8 text-3xl text-matrix-green-primary text-center font-mono font-bold">
               Sign up
             </h1>
-            {props.errors ? <Errors /> : null}
+            {errors ? <Errors /> : null}
 
             <label htmlFor="username">
               <input
@@ -111,7 +111,6 @@ function SignUp(props) {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user,
   loggedIn: state.user.loggedIn,
   token: state.sessions.token,
   loadingUser: state.user.loadingUser,
