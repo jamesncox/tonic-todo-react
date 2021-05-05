@@ -24,8 +24,11 @@ function AddTodo(props) {
 
   return (
     <div className="mt-16">
-      <form className="mx-5 md:mx-0 px-2" onSubmit={handleAddTodo}>
-        <label className="text-xl text-matrix-green-primary" htmlFor="add todo">
+      <form className="mx-5 md:mx-0" onSubmit={handleAddTodo}>
+        <label
+          className="text-2xl font-extrabold text-matrix-green-primary font-mono"
+          htmlFor="add todo"
+        >
           Add New Todo
         </label>
         {props.errors
@@ -44,7 +47,7 @@ function AddTodo(props) {
           : null}
         <input
           type="text"
-          className="block border border-grey-light w-full p-3 rounded mb-5 mt-5"
+          className="block border border-grey-light w-full p-3 rounded mb-2 mt-5"
           name="todo"
           placeholder="New Todo"
           value={todo}
@@ -53,7 +56,7 @@ function AddTodo(props) {
 
         <button
           type="submit"
-          className="w-full text-center rounded bg-matrix-green-primary text-black hover:bg-matrix-green-hover focus:outline-none my-1 font-mono font-bold"
+          className="w-full text-center rounded bg-matrix-green-primary text-black hover:bg-matrix-green-hover focus:outline-none mb-5 font-mono font-bold"
         >
           Add
         </button>
