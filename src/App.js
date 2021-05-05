@@ -16,7 +16,7 @@ function App(props) {
   useEffect(() => {
     props.getToken();
     props.setCurrentUser();
-  }, []);
+  }, [props]);
 
   return (
     <Router>

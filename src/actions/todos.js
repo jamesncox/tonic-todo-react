@@ -18,7 +18,9 @@ export const getTodos = (id) => {
     dispatch({ type: LOADING_TODOS });
 
     try {
-      const res = await fetch(`http://localhost:3001/api/v1/user_todos/${id}`);
+      const res = await fetch(
+        `https://the-matrix-todo.herokuapp.com/api/v1/user_todos/${id}`
+      );
       if (!res.ok) {
         throw res;
       }
@@ -40,15 +42,18 @@ export const createTodo = (todo) => {
       user_id: todo.userId,
     };
 
-    const res = await fetch("http://localhost:3001/api/v1/todos", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(formData),
-      credentials: "include",
-    });
+    const res = await fetch(
+      "https://the-matrix-todo.herokuapp.com/api/v1/todos",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+        credentials: "include",
+      }
+    );
 
     const todoObj = await res.json();
 
@@ -69,15 +74,18 @@ export const changeTodoStatus = (todo) => {
       user_id: todo.userId,
     };
 
-    const res = await fetch(`http://localhost:3001/api/v1/todos/${todo.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(formData),
-      credentials: "include",
-    });
+    const res = await fetch(
+      `https://the-matrix-todo.herokuapp.com/api/v1/todos/${todo.id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+        credentials: "include",
+      }
+    );
 
     const todoObj = await res.json();
 
@@ -91,9 +99,12 @@ export const changeTodoStatus = (todo) => {
 
 export const deleteTodo = (id) => {
   return async (dispatch) => {
-    const res = await fetch(`http://localhost:3001/api/v1/todos/${id}`, {
-      method: "DELETE",
-    });
+    const res = await fetch(
+      `https://the-matrix-todo.herokuapp.com/api/v1/todos/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
 
     const todoObj = await res.json();
 
