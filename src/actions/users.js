@@ -19,7 +19,7 @@ export const clearIsUserLoading = () => {
   return { type: CLEAR_IS_USER_LOADING };
 };
 
-export function signupUser(token, user) {
+export const signupUser = (token, user) => {
   return async (dispatch) => {
     dispatch({ type: LOADING_USER });
 
@@ -50,7 +50,7 @@ export function signupUser(token, user) {
       dispatch({ type: CLEAR_ERRORS });
     }
   };
-}
+};
 
 export function loginUser(user) {
   return async (dispatch, getState) => {
