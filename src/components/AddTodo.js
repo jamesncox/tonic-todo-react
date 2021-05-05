@@ -2,7 +2,7 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import { createTodo } from "../actions/todos";
 
-function AddTodo(props) {
+function AddTodo({ id, errors, createTodo }) {
   const [todo, setTodo] = useState("");
 
   const handleTodoChange = (e) => {
@@ -15,10 +15,10 @@ function AddTodo(props) {
     const newTodo = {
       text: todo,
       done: false,
-      userId: props.id,
+      userId: id,
     };
 
-    props.createTodo(newTodo);
+    createTodo(newTodo);
     setTodo("");
   };
 
@@ -31,8 +31,8 @@ function AddTodo(props) {
         >
           Add New Todo
         </label>
-        {props.errors
-          ? props.errors.map((error, index) => {
+        {errors
+          ? errors.map((error, index) => {
               return (
                 <ul key={index}>
                   <li
