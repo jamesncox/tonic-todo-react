@@ -16,7 +16,7 @@ function Header({ username, clearCurrentUser, clearErrors }) {
   };
 
   return (
-    <div className="pt-8 pl-8">
+    <div className="pt-8 pl-5">
       <header className="text-matrix-green-primary text-2xl md:text-4xl font-bold font-mono">
         Wake up, {displayUser()}...
       </header>
