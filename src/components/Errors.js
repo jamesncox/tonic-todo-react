@@ -37,7 +37,7 @@ function Errors({ errors, clearErrors, clearIsUserLoading }) {
             </div>
             <div className="flex items-center justify-end rounded-b bg-matrix-green ">
               <button
-                className="bg-matrix-green-primary rounded hover:bg-matrix-green-hover m-1 text-matrix-green-secondary font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                className="bg-matrix-green-primary rounded hover:bg-matrix-green-hover m-2 text-matrix-green-secondary font-bold uppercase px-3 py-1 text-sm outline-none focus:outline-none ease-linear transition-all duration-150"
                 type="button"
                 onClick={closeModal}
               >
