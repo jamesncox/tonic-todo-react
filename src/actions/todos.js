@@ -6,6 +6,7 @@ import {
   LOADING_SINGLE_TODO,
   UPDATE_TODO,
   DELETE_TODO,
+  CLEAR_ERRORS,
 } from "../actionTypes";
 
 const setTodos = (todos) => {
@@ -55,6 +56,7 @@ export const createTodo = (todo) => {
       dispatch({ type: SET_ERRORS, payload: todoObj.errors });
     } else {
       dispatch({ type: CREATE_TODO, payload: todoObj });
+      dispatch({ type: CLEAR_ERRORS });
     }
   };
 };

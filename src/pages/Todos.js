@@ -23,7 +23,7 @@ function Todos(props) {
           {props.todos
             ? props.todos.map((todo) => (
                 <div
-                  className="flex mx-5 md:mx-0 mt-16 bg-matrix-green p-4 rounded"
+                  className="flex mx-5 md:mx-0 mt-5 bg-matrix-green p-4 rounded"
                   key={todo.id}
                 >
                   <input
@@ -36,7 +36,7 @@ function Todos(props) {
                   <li className="text-matrix-green-secondary font-mono font-bold text-lg md:text-xl">
                     {todo.text}
                   </li>
-                  <button className="ml-5 bg-matrix-green-secondary px-2 rounded font-bold font-mono text-matrix-green-light hover:bg-matrix-green-light hover:text-matrix-green-primary">
+                  <button className=" ml-5 bg-matrix-green-secondary px-2 rounded font-bold font-mono text-matrix-green-light hover:bg-matrix-green-light hover:text-matrix-green-primary">
                     X
                   </button>
                 </div>

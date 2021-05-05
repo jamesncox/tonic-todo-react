@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { connect } from "react-redux";
+import { createTodo } from "../actions/todos";
 
 function AddTodo(props) {
   const [todo, setTodo] = useState("");
@@ -14,7 +15,10 @@ function AddTodo(props) {
     const newTodo = {
       text: todo,
       done: false,
+      userId: props.id,
     };
+
+    props.createTodo(newTodo);
   };
 
   return (
@@ -23,6 +27,20 @@ function AddTodo(props) {
         <label className="text-xl text-matrix-green-primary" htmlFor="add todo">
           Add New Todo
         </label>
+        {props.errors
+          ? props.errors.map((error, index) => {
+              return (
+                <ul key={index}>
+                  <li
+                    className="text-red-500 text-center my-5 text-xl"
+                    key={index}
+                  >
+                    {error}
+                  </li>
+                </ul>
+              );
+            })
+          : null}
         <input
           type="text"
           className="block border border-grey-light w-full p-3 rounded mb-5 mt-5"
@@ -43,4 +61,9 @@ function AddTodo(props) {
   );
 }
 
-export default connect()(AddTodo);
+const mapStateToProps = (state) => ({
+  id: state.user.id,
+  errors: state.errors.errors,
+});
+
+export default connect(mapStateToProps, { createTodo })(AddTodo);
