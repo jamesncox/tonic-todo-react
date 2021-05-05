@@ -62,27 +62,23 @@ export const createTodo = (todo) => {
 };
 
 export const changeTodoStatus = (todo) => {
+  console.log(todo);
   return async (dispatch) => {
-    dispatch({ type: LOADING_TODOS });
-
     const formData = {
       text: todo.text,
       done: todo.done,
       user_id: todo.userId,
     };
 
-    const res = await fetch(
-      `http://localhost:3001/api/v1/todos/${todo.todoId}`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(formData),
-        credentials: "include",
-      }
-    );
+    const res = await fetch(`http://localhost:3001/api/v1/todos/${todo.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(formData),
+      credentials: "include",
+    });
 
     const todoObj = await res.json();
 

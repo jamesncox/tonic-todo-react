@@ -1,7 +1,16 @@
-import { deleteTodo } from "../actions/todos";
+import { deleteTodo, changeTodoStatus } from "../actions/todos";
 import { connect } from "react-redux";
 
-function TodoItem({ todo, deleteTodo }) {
+function TodoItem({ todo, deleteTodo, changeTodoStatus }) {
+  const updateCheckedStatus = (e) => {
+    const todoObj = {
+      ...todo,
+      done: e.target.checked,
+    };
+
+    changeTodoStatus(todoObj);
+  };
+
   return (
     <div className="flex justify-between items-center mx-5 md:mx-0 mt-5 bg-matrix-green p-4 rounded">
       <div className="flex items-center">
@@ -11,8 +20,14 @@ function TodoItem({ todo, deleteTodo }) {
           id={todo.id}
           name={todo}
           value={todo}
+          onClick={updateCheckedStatus}
+          defaultChecked={todo.done}
         />
-        <li className="text-matrix-green-secondary font-mono font-bold text-lg md:text-xl">
+        <li
+          className={`text-matrix-green-secondary font-mono font-bold text-lg md:text-xl ${
+            todo.done ? "line-through" : ""
+          }`}
+        >
           {todo.text}
         </li>
       </div>
@@ -26,4 +41,4 @@ function TodoItem({ todo, deleteTodo }) {
   );
 }
 
-export default connect(null, { deleteTodo })(TodoItem);
+export default connect(null, { deleteTodo, changeTodoStatus })(TodoItem);
