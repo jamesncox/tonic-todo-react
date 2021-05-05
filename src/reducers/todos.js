@@ -1,11 +1,8 @@
 import {
   SET_TODOS,
-  LOADING_TODOS,
   CREATE_TODO,
-  LOADING_SINGLE_TODO,
   UPDATE_TODO,
   DELETE_TODO,
-  CLEAR_LOADING_SINGLE_TODO,
 } from "../actionTypes";
 
 const todosReducer = (
@@ -17,14 +14,8 @@ const todosReducer = (
   action
 ) => {
   switch (action.type) {
-    case LOADING_TODOS:
-      return { ...state, todos: [...state.todos], loadingTodos: true };
-
     case SET_TODOS:
       return { ...state, todos: action.payload, loadingTodos: false };
-
-    case LOADING_SINGLE_TODO:
-      return { ...state, todos: [...state.todos], loadingSingleTodo: true };
 
     case CREATE_TODO:
       return {
@@ -51,9 +42,6 @@ const todosReducer = (
         (todo) => todo.id !== action.payload.id
       );
       return { ...state, todos: persistedTodos, loadingTodos: false };
-
-    case CLEAR_LOADING_SINGLE_TODO:
-      return { ...state, loadingSingleTodo: false };
 
     default:
       return state;

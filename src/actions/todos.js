@@ -1,9 +1,7 @@
 import {
   SET_TODOS,
-  LOADING_TODOS,
   CREATE_TODO,
   SET_ERRORS,
-  LOADING_SINGLE_TODO,
   UPDATE_TODO,
   DELETE_TODO,
   CLEAR_ERRORS,
@@ -15,8 +13,6 @@ const setTodos = (todos) => {
 
 export const getTodos = (id) => {
   return async (dispatch) => {
-    dispatch({ type: LOADING_TODOS });
-
     const res = await fetch(
       `https://the-matrix-todo.herokuapp.com/api/v1/user_todos/${id}`
     );
@@ -33,8 +29,6 @@ export const getTodos = (id) => {
 
 export const createTodo = (todo) => {
   return async (dispatch) => {
-    dispatch({ type: LOADING_SINGLE_TODO });
-
     const formData = {
       text: todo.text,
       done: todo.done,
