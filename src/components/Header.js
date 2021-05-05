@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { clearCurrentUser } from "../actions/users";
+import { clearCurrentUser, clearErrors } from "../actions/users";
 
 function Header(props) {
   const displayUser = () => {
@@ -10,6 +10,11 @@ function Header(props) {
     }
   };
 
+  const clearUserAndErrors = () => {
+    props.clearCurrentUser();
+    props.clearErrors();
+  };
+
   return (
     <div className="pt-8 pl-8">
       <header className="text-matrix-green-primary text-2xl md:text-4xl font-bold font-mono">
@@ -18,7 +23,7 @@ function Header(props) {
       {props.username ? (
         <button
           className="bg-matrix-green-primary text-black font-mono font-bold rounded-sm mt-8 p-2 hover:bg-matrix-green-hover"
-          onClick={props.clearCurrentUser}
+          onClick={clearUserAndErrors}
         >
           Log Out
         </button>
@@ -31,4 +36,6 @@ const mapStateToProps = (state) => ({
   username: state.user.username,
 });
 
-export default connect(mapStateToProps, { clearCurrentUser })(Header);
+export default connect(mapStateToProps, { clearCurrentUser, clearErrors })(
+  Header
+);
