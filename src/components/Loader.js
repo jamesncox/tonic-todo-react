@@ -2,7 +2,7 @@ import { useState } from "react";
 import MatrixScroll from "../assets/matrix-scroll-code.webp";
 
 export default function Loader() {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal] = useState(true);
   return (
     <>
       {showModal ? (
