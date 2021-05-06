@@ -1,11 +1,5 @@
 import { SET_TOKEN } from "../actionTypes";
 
-const setToken = (token) => {
-  return (dispatch) => {
-    dispatch({ type: SET_TOKEN, payload: token });
-  };
-};
-
 export const getToken = () => {
   return async (dispatch) => {
     try {
@@ -18,7 +12,7 @@ export const getToken = () => {
       }
 
       const tokenData = await res.json();
-      dispatch(setToken(tokenData.csrf_auth_token));
+      dispatch({ type: SET_TOKEN, payload: tokenData.csrf_auth_token });
     } catch (err) {
       console.log(err);
     }
