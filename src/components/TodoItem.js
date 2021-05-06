@@ -12,7 +12,7 @@ function TodoItem({ todo, deleteTodo, changeTodoStatus }) {
   };
 
   return (
-    <div className="flex justify-between items-center mx-5 md:mx-0 mt-5 bg-matrix-green p-4 rounded last:mb-10">
+    <div className="flex justify-between items-center mx-5 mt-5 bg-matrix-green p-4 rounded last:mb-10">
       <div className="flex items-center">
         <input
           className="mr-5 form-checkbox h-5 w-5 text-matrix-green-text bg-matrix-green-light rounded"

@@ -24,7 +24,7 @@ function Todos({ id, loggedIn, todos }) {
       <div className="w-full sm:2/3 lg:w-1/2 mt-16">
         <AddTodo />
         {incompleteTodos.length > 0 ? (
-          <p className="text-matrix-green font-mono font-bold text-lg mx-5 md:mx-0">
+          <p className="text-matrix-green font-mono font-bold text-lg mx-5">
             Incomplete
           </p>
         ) : null}
@@ -36,7 +36,7 @@ function Todos({ id, loggedIn, todos }) {
             : null}
         </ul>
         {completeTodos.length > 0 ? (
-          <p className="text-matrix-green font-mono font-bold text-lg mx-5 md:mx-0">
+          <p className="text-matrix-green font-mono font-bold text-lg mx-5">
             Complete
           </p>
         ) : null}

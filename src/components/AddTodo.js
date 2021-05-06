@@ -24,7 +24,7 @@ function AddTodo({ id, errors, createTodo }) {
 
   return (
     <>
-      <form className="mx-5 md:mx-0" onSubmit={handleAddTodo}>
+      <form className="mx-5" onSubmit={handleAddTodo}>
         <label
           className="text-2xl font-extrabold text-matrix-green-primary font-mono"
           htmlFor="add todo"
