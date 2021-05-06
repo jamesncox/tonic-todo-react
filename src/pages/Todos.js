@@ -1,18 +1,16 @@
 import { useEffect } from "react";
-import { connect, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import AddTodo from "../components/AddTodo";
 import { getTodos } from "../actions/todos";
 import TodoItem from "../components/TodoItem";
 
-function Todos({ id, loggedIn, todos }) {
-  const dispatch = useDispatch();
-
+function Todos({ id, loggedIn, todos, getTodos }) {
   useEffect(() => {
     if (loggedIn) {
-      dispatch(getTodos(id));
+      getTodos(id);
     }
-  }, [dispatch, id, loggedIn]);
+  }, [getTodos, loggedIn, id]);
 
   const incompleteTodos = todos.filter((todo) => todo.done === false);
   const completeTodos = todos.filter((todo) => todo.done === true);
