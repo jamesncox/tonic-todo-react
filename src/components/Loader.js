@@ -8,6 +8,7 @@ export default function Loader() {
           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
             <div className="h-44 md:h-64 bg-matrix-green-text rounded rounded-b-none">
               <img
+                width="480"
                 src={MatrixScroll}
                 alt="Gif of The Matrix code scrolling effect"
               />
@@ -19,6 +20,7 @@ export default function Loader() {
             </div>
             <div className="h-44 md:h-64 bg-matrix-green-text rounded rounded-t-none">
               <img
+                width="480"
                 src={MatrixScroll}
                 alt="Gif of The Matrix code scrolling effect"
               />
