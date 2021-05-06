@@ -7,10 +7,6 @@ import {
   CLEAR_ERRORS,
 } from "../actionTypes";
 
-const setTodos = (todos) => {
-  return { type: SET_TODOS, payload: todos };
-};
-
 export const getTodos = (id) => {
   return async (dispatch) => {
     const res = await fetch(
@@ -22,7 +18,7 @@ export const getTodos = (id) => {
     if (todoData.errors) {
       dispatch({ type: SET_ERRORS, payload: todoData.errors });
     } else {
-      dispatch(setTodos(todoData));
+      dispatch({ type: SET_TODOS, payload: todoData });
     }
   };
 };
