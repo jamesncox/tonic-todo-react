@@ -7,7 +7,8 @@ module.exports = {
       colors: {
         "matrix-green": "#22b455",
         "matrix-green-primary": "#008F11",
-        "matrix-green-secondary": "#003B00",
+        "matrix-green-text": "#003B00",
+        "matrix-green-secondary": "#006400",
         "matrix-green-light": "#92e5a1",
         "matrix-green-hover": "#00ff2b",
       },

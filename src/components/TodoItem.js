@@ -24,7 +24,7 @@ function TodoItem({ todo, deleteTodo, changeTodoStatus }) {
           defaultChecked={todo.done}
         />
         <li
-          className={`text-matrix-green-secondary font-mono font-bold text-lg md:text-xl ${
+          className={`text-matrix-green-text font-mono font-bold text-lg md:text-xl ${
             todo.done ? "line-through" : ""
           }`}
         >
@@ -32,7 +32,7 @@ function TodoItem({ todo, deleteTodo, changeTodoStatus }) {
         </li>
       </div>
       <button
-        className="leading-none ml-5 bg-matrix-green-secondary px-2 py-1 rounded font-bold text-matrix-green-light hover:bg-matrix-green-light hover:text-matrix-green-primary"
+        className="leading-none ml-5 bg-matrix-green-text px-2 py-1 rounded font-bold text-matrix-green-light hover:bg-matrix-green-light hover:text-matrix-green-primary"
         onClick={() => deleteTodo(todo.id)}
       >
         X
