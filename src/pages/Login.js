@@ -69,7 +69,7 @@ function Login({ loggedIn, errors, loadingUser, loginUser }) {
 
             <button
               type="submit"
-              className="w-full text-center py-3 rounded bg-matrix-green-primary text-black hover:bg-matrix-green-hover focus:outline-none my-1 font-mono font-bold"
+              className="w-full text-center py-2 rounded bg-matrix-green-primary text-black text-lg hover:bg-matrix-green-hover focus:outline-none my-1 font-mono font-bold"
             >
               Enter The Matrix
             </button>
