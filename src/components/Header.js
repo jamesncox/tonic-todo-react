@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { clearCurrentUser, clearErrors } from "../actions/users";
+import { Link } from "react-router-dom";
 
 function Header({ username, clearCurrentUser, clearErrors }) {
   const displayUser = () => {
@@ -17,9 +18,11 @@ function Header({ username, clearCurrentUser, clearErrors }) {
 
   return (
     <div className="pt-8 pl-5">
-      <header className="text-matrix-green-primary text-2xl md:text-4xl font-bold font-mono">
-        Wake up, {displayUser()}...
-      </header>
+      <Link to="/">
+        <header className="text-matrix-green-primary text-2xl md:text-4xl font-bold font-mono">
+          Wake up, {displayUser()}...
+        </header>
+      </Link>
       {username ? (
         <button
           className="bg-matrix-green-primary text-black font-mono font-bold rounded-sm mt-8 p-2 hover:bg-matrix-green-hover"
