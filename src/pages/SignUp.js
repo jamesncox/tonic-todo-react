@@ -40,7 +40,7 @@ function SignUp({ loggedIn, token, loadingUser, errors, signupUser }) {
     return <Redirect to="/todos" />;
   } else {
     return (
-      <div className="w-full sm:2/3 lg:w-1/2 xl:w-1/3 min-h-screen mt-16">
+      <div className="w-full sm:2/3 lg:w-1/2 xl:w-1/3  mt-16">
         {loadingUser ? <Loader /> : null}
         <form
           className="container flex-1 flex flex-col px-2"
