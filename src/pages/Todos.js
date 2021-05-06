@@ -14,15 +14,37 @@ function Todos({ id, loggedIn, todos }) {
     }
   }, [dispatch, id, loggedIn]);
 
+  const incompleteTodos = todos.filter((todo) => todo.done === false);
+  const completeTodos = todos.filter((todo) => todo.done === true);
+
   if (!loggedIn) {
     return <Redirect to="/" />;
   } else {
     return (
       <div className="w-full sm:2/3 lg:w-1/2 xl:w-1/3 mt-16">
         <AddTodo />
+        {incompleteTodos.length > 0 ? (
+          <p className="text-matrix-green font-mono font-bold text-lg mx-5">
+            Incomplete
+          </p>
+        ) : null}
         <ul>
-          {todos
-            ? todos.map((todo) => <TodoItem key={todo.id} todo={todo} />)
+          {incompleteTodos
+            ? incompleteTodos.map((todo) => (
+                <TodoItem key={todo.id} todo={todo} />
+              ))
+            : null}
+        </ul>
+        {completeTodos.length > 0 ? (
+          <p className="text-matrix-green font-mono font-bold text-lg mx-5">
+            Complete
+          </p>
+        ) : null}
+        <ul>
+          {completeTodos
+            ? completeTodos.map((todo) => (
+                <TodoItem key={todo.id} todo={todo} />
+              ))
             : null}
         </ul>
       </div>
