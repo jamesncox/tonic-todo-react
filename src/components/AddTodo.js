@@ -56,7 +56,7 @@ function AddTodo({ id, errors, createTodo }) {
 
         <button
           type="submit"
-          className="w-full text-center rounded bg-matrix-green-primary text-black hover:bg-matrix-green-hover focus:outline-none mb-5 font-mono font-bold"
+          className="w-full text-center rounded bg-matrix-green-primary text-lg text-black hover:bg-matrix-green-hover focus:outline-none mb-5 font-mono font-bold"
         >
           Add
         </button>
