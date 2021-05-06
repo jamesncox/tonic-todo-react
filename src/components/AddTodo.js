@@ -23,7 +23,7 @@ function AddTodo({ id, errors, createTodo }) {
   };
 
   return (
-    <div className="mt-16">
+    <>
       <form className="mx-5 md:mx-0" onSubmit={handleAddTodo}>
         <label
           className="text-2xl font-extrabold text-matrix-green-primary font-mono"
@@ -61,7 +61,7 @@ function AddTodo({ id, errors, createTodo }) {
           Add
         </button>
       </form>
-    </div>
+    </>
   );
 }
 
