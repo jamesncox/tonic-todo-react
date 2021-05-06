@@ -22,7 +22,7 @@ function App({ getToken, setCurrentUser }) {
     <Router>
       <div className="bg-black md:w-3/5 m-auto">
         <Header />
-        <div className="flex h-screen justify-center">
+        <div className="flex flex-col min-h-screen items-center">
           <Switch>
             <Route exact path="/">
               <Home />
@@ -37,8 +37,8 @@ function App({ getToken, setCurrentUser }) {
               <Todos />
             </Route>
           </Switch>
+          <Footer />
         </div>
-        <Footer />
       </div>
     </Router>
   );
