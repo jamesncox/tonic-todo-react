@@ -10,3 +10,7 @@ body {
     backdrop-filter: brightness(200%);
   }
 }
+
+img {
+  border-radius: 5px;
+}
