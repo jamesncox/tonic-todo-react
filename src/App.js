@@ -20,7 +20,7 @@ function App({ getToken, setCurrentUser }) {
 
   return (
     <Router>
-      <div className="bg-black md:w-3/5 m-auto">
+      <div className="md:bg-black md:w-3/5 m-auto">
         <Header />
         <div className="flex flex-col min-h-screen items-center">
           <Switch>

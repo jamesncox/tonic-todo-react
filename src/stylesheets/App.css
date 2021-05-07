@@ -1,4 +1,13 @@
 body {
-  background-image: url("../assets/matrix-scroll-code.webp");
-  background-color: black;
+  /* background-image: url("../assets/matrix-scroll-code.webp"); */
+  background-color: rgba(0, 0, 0, 0.712);
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../assets/matrix-scroll-code.webp");
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+      url("../assets/matrix-scroll-code.webp");
+  }
 }
