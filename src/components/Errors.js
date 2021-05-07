@@ -13,7 +13,7 @@ function Errors({ errors, clearErrors, clearIsUserLoading }) {
 
   return (
     <>
-      <div className="mx-5 justify-center mt-36 flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+      <div className="mx-5 justify-center mt-32 flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
         <div className="relative w-auto my-6 mx-auto max-w-xl">
           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
             <div className="flex justify-center p-5 bg-matrix-green rounded rounded-b-none">
