@@ -10,7 +10,3 @@ body {
     backdrop-filter: brightness(200%);
   }
 }
-
-img {
-  filter: brightness(200%);
-}
