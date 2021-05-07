@@ -5,7 +5,7 @@ export default function Loader() {
     <>
       <div className="mx-5 justify-center mt-40 flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
         <div className="relative w-auto my-6 mx-auto max-w-3xl">
-          <div className="border-0 rounded shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none bg-matrix-green-hover px-2 pb-5 md:px-5 md:pb-10">
+          <div className="border-0 rounded shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none bg-matrix-green-hover px-2 pb-8 md:px-5 md:pb-10">
             <div className="flex justify-center">
               <h3 className="text-2xl text-black font-mono font-bold p-1 md:p-2">
                 COMPILING...
