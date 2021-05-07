@@ -37,7 +37,7 @@ function AddTodo({ id, errors, createTodo, clearErrors }) {
               return (
                 <div className="flex items-center justify-center" key={index}>
                   <ul>
-                    <li className="text-red-500 text-center my-5 text-xl">
+                    <li className="text-red-700 text-center my-5 font-mono font-bold text-xl">
                       {error}
                     </li>
                   </ul>

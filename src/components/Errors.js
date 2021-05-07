@@ -26,7 +26,7 @@ function Errors({ errors, clearErrors, clearIsUserLoading }) {
                 return (
                   <ul key={index}>
                     <li
-                      className="text-red-500 text-center my-5 text-xl"
+                      className="mx-5 text-red-700 font-mono font-bold text-center my-5 text-xl"
                       key={index}
                     >
                       {error}
