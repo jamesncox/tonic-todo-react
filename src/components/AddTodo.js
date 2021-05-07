@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { connect } from "react-redux";
 import { createTodo } from "../actions/todos";
+import { clearErrors } from "../actions/users";
 
-function AddTodo({ id, errors, createTodo }) {
+function AddTodo({ id, errors, createTodo, clearErrors }) {
   const [todo, setTodo] = useState("");
 
   const handleTodoChange = (e) => {
@@ -34,14 +35,19 @@ function AddTodo({ id, errors, createTodo }) {
         {errors
           ? errors.map((error, index) => {
               return (
-                <ul key={index}>
-                  <li
-                    className="text-red-500 text-center my-5 text-xl"
-                    key={index}
+                <div className="flex items-center justify-center" key={index}>
+                  <ul>
+                    <li className="text-red-500 text-center my-5 text-xl">
+                      {error}
+                    </li>
+                  </ul>
+                  <button
+                    className="text-black font-mono text-xl font-bold bg-red-700 ml-3 px-1 rounded hover:bg-red-500"
+                    onClick={() => clearErrors()}
                   >
-                    {error}
-                  </li>
-                </ul>
+                    Ok
+                  </button>
+                </div>
               );
             })
           : null}
@@ -70,4 +76,4 @@ const mapStateToProps = (state) => ({
   errors: state.errors.errors,
 });
 
-export default connect(mapStateToProps, { createTodo })(AddTodo);
+export default connect(mapStateToProps, { createTodo, clearErrors })(AddTodo);
