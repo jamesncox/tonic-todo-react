@@ -1,7 +1,7 @@
 body {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+  background: black linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("../assets/matrix-scroll-code.webp");
-  background-color: black;
+  /* background-color: black; */
 }
 
 @media screen and (min-width: 768px) {
