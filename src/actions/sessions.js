@@ -1,11 +1,11 @@
 import { SET_TOKEN } from "../actionTypes";
 
+const BASE_URL = "https://the-matrix-todo.herokuapp.com/api/v1";
+
 export const getToken = () => {
   return async (dispatch) => {
     try {
-      const res = await fetch(
-        "https://the-matrix-todo.herokuapp.com/api/v1/auth_check"
-      );
+      const res = await fetch(`${BASE_URL}/auth_check`);
 
       if (!res.ok) {
         throw res;

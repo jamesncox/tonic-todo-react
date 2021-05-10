@@ -19,6 +19,8 @@ export const clearIsUserLoading = () => {
   return { type: CLEAR_IS_USER_LOADING };
 };
 
+const BASE_URL = "https://the-matrix-todo.herokuapp.com/api/v1";
+
 export const signupUser = (token, user) => {
   return async (dispatch) => {
     dispatch({ type: LOADING_USER });
@@ -31,18 +33,15 @@ export const signupUser = (token, user) => {
       },
     };
 
-    const res = await fetch(
-      "https://the-matrix-todo.herokuapp.com/api/v1/signup",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRF-Token": token,
-        },
-        body: JSON.stringify(formData),
-        credentials: "include",
-      }
-    );
+    const res = await fetch(`${BASE_URL}/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token": token,
+      },
+      body: JSON.stringify(formData),
+      credentials: "include",
+    });
 
     const userObj = await res.json();
 
@@ -69,18 +68,15 @@ export function loginUser(user) {
     const state = getState();
     const token = state.sessions.token;
 
-    const res = await fetch(
-      "https://the-matrix-todo.herokuapp.com/api/v1/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRF-Token": token,
-        },
-        body: JSON.stringify(formData),
-        credentials: "include",
-      }
-    );
+    const res = await fetch(`${BASE_URL}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token": token,
+      },
+      body: JSON.stringify(formData),
+      credentials: "include",
+    });
     const userObj = await res.json();
     if (userObj.errors) {
       dispatch({ type: SET_ERRORS, payload: userObj.errors });
@@ -94,12 +90,9 @@ export function loginUser(user) {
 export function setCurrentUser() {
   return async (dispatch) => {
     try {
-      const res = await fetch(
-        "https://the-matrix-todo.herokuapp.com/api/v1/current_user",
-        {
-          credentials: "include",
-        }
-      );
+      const res = await fetch(`${BASE_URL}/current_user`, {
+        credentials: "include",
+      });
       if (!res.ok) {
         throw res;
       }
@@ -118,17 +111,14 @@ export function clearCurrentUser() {
     const state = getState();
     const token = state.sessions.token;
 
-    const res = await fetch(
-      "https://the-matrix-todo.herokuapp.com/api/v1/logout",
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRF-Token": token,
-        },
-        credentials: "include",
-      }
-    );
+    const res = await fetch(`${BASE_URL}/logout`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token": token,
+      },
+      credentials: "include",
+    });
     if (!res.ok) {
       throw res;
     }

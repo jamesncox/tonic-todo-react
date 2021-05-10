@@ -7,11 +7,11 @@ import {
   CLEAR_ERRORS,
 } from "../actionTypes";
 
+const BASE_URL = "https://the-matrix-todo.herokuapp.com/api/v1";
+
 export const getTodos = (id) => {
   return async (dispatch) => {
-    const res = await fetch(
-      `https://the-matrix-todo.herokuapp.com/api/v1/user_todos/${id}`
-    );
+    const res = await fetch(`${BASE_URL}/user_todos/${id}`);
 
     const todoData = await res.json();
 
@@ -31,18 +31,15 @@ export const createTodo = (todo) => {
       user_id: todo.userId,
     };
 
-    const res = await fetch(
-      "https://the-matrix-todo.herokuapp.com/api/v1/todos",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(formData),
-        credentials: "include",
-      }
-    );
+    const res = await fetch(`${BASE_URL}/todos`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(formData),
+      credentials: "include",
+    });
 
     const todoObj = await res.json();
 
@@ -63,18 +60,15 @@ export const changeTodoStatus = (todo) => {
       user_id: todo.userId,
     };
 
-    const res = await fetch(
-      `https://the-matrix-todo.herokuapp.com/api/v1/todos/${todo.id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(formData),
-        credentials: "include",
-      }
-    );
+    const res = await fetch(`${BASE_URL}/todos/${todo.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(formData),
+      credentials: "include",
+    });
 
     const todoObj = await res.json();
 
@@ -88,12 +82,9 @@ export const changeTodoStatus = (todo) => {
 
 export const deleteTodo = (id) => {
   return async (dispatch) => {
-    const res = await fetch(
-      `https://the-matrix-todo.herokuapp.com/api/v1/todos/${id}`,
-      {
-        method: "DELETE",
-      }
-    );
+    const res = await fetch(`${BASE_URL}/todos/${id}`, {
+      method: "DELETE",
+    });
 
     const todoObj = await res.json();
 
