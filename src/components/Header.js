@@ -23,14 +23,14 @@ function Header({ username, clearCurrentUser, clearErrors }) {
           Wake up, {displayUser()}...
         </header>
       </Link>
-      {username ? (
+      {username && (
         <button
           className="bg-matrix-green-primary text-lg text-black font-mono font-bold rounded-sm mt-3 p-2 hover:bg-matrix-green-hover"
           onClick={clearUserAndErrors}
         >
           Log Out
         </button>
-      ) : null}
+      )}
     </div>
   );
 }
