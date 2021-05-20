@@ -32,25 +32,24 @@ function AddTodo({ id, errors, createTodo, clearErrors }) {
         >
           Add New Todo
         </label>
-        {errors
-          ? errors.map((error, index) => {
-              return (
-                <div className="flex items-center justify-center" key={index}>
-                  <ul>
-                    <li className="text-red-700 text-center my-5 font-mono font-bold text-xl">
-                      {error}
-                    </li>
-                  </ul>
-                  <button
-                    className="text-black font-mono text-xl font-bold bg-red-700 ml-3 px-1 rounded hover:bg-red-500"
-                    onClick={() => clearErrors()}
-                  >
-                    Ok
-                  </button>
-                </div>
-              );
-            })
-          : null}
+        {errors &&
+          errors.map((error, index) => {
+            return (
+              <div className="flex items-center justify-center" key={index}>
+                <ul>
+                  <li className="text-red-700 text-center my-5 font-mono font-bold text-xl">
+                    {error}
+                  </li>
+                </ul>
+                <button
+                  className="text-black font-mono text-xl font-bold bg-red-700 ml-3 px-1 rounded hover:bg-red-500"
+                  onClick={() => clearErrors()}
+                >
+                  Ok
+                </button>
+              </div>
+            );
+          })}
         <input
           type="text"
           className="block border border-grey-light w-full p-3 rounded mb-2 mt-5"
