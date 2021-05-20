@@ -7,7 +7,7 @@ function Header({ username, clearCurrentUser, clearErrors }) {
     if (username) {
       return username;
     } else {
-      return "Tonic";
+      return "Neo";
     }
   };
 
